@@ -1,0 +1,20 @@
+{
+    "short_name": "Bud's Cafe",
+    "name": "Bud's Cafe",
+    "icons": [
+      {
+        "src": "/img/logo192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/img/logo512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/index.html",
+    "background_color": "#000000",
+    "display": "standalone",
+    "theme_color": "#8a5d3b"
+  }
