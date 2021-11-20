@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;300;500&display=swap" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -27,12 +27,23 @@
       <img src="img/logo.png" alt="Bud's Cafe Logo" id="logo">
     </center>
   </div>
+  <div id="content">
+    <span id="note"></span>
+  </div>
 
   <nav>
-    <a href="#" class="nav-item"><img src="img/burger.png"><span>Snacks</span></a>
-    <a href="#" class="nav-item"><img src="img/bolt.png"><span>Quick</span></a>
-    <a href="#" class="nav-item"><img src="img/coffee.png"><span>Drinks</span></a>
-    <a href="#" class="nav-item"><img src="img/dessert.png"><span>Desserts</span></a>
+    <span class="nav-item nav-item-selected" id="nav-snacks">
+      <img src="img/burger.png">
+      <span class="nav-label">Snacks</span>
+    </span>
+    <span class="nav-item" id="nav-hot">
+      <img src="img/coffee.png">
+      <span class="nav-label">Hot Drinks</span>
+    </span>
+    <span class="nav-item" id="nav-cold">
+      <img src="img/juice.png">
+      <span class="nav-label">Cold Drinks</span>
+    </span>
   </nav>
   <script src="script.js" type="text/javascript"></script>
 </body>
