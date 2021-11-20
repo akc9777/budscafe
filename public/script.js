@@ -4,12 +4,15 @@ $(document).ready(
         var today = new Date();
         var hour = today.getHours();
 
+
         if (hour > 18 || hour < 6) {
+            console.log('dark');
             $("body").css("background-color", "#333");
             $(".nav-items").css("color", "#fff");
         } else {
-            $("body").css("background-color", "#eee");
-            $("body").css("background-color", "#000");
+            console.log('light');
+            $("body").css("background-color", "#777");
+            $(".nav-items").css("color", "#000");
 
         }
     }
