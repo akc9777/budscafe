@@ -1,8 +1,6 @@
-$(document).ready(function () {
-  let lightBrown = "#8a5d3b";
-  let darkBrown = "#331a0d";
-
-  let snacks = [
+let lightBrown = "#8a5d3b",
+  darkBrown = "#331a0d",
+  snacks = [
     {
       name: "Steam Mo:Mo (Veg/Buff/Chicken)",
       price: "130/140/150",
@@ -33,8 +31,12 @@ $(document).ready(function () {
       category: "snacks",
       subcategory: "Mo:Mo",
     },
-
-    { name: "Veg Pizza", price: 250, category: "snacks", subcategory: "Pizza" },
+    {
+      name: "Veg Pizza",
+      price: 250,
+      category: "snacks",
+      subcategory: "Pizza",
+    },
     {
       name: "Chicken Pizza",
       price: 280,
@@ -47,7 +49,6 @@ $(document).ready(function () {
       category: "snacks",
       subcategory: "Pizza",
     },
-
     {
       name: "French Fries",
       price: "150",
@@ -78,7 +79,6 @@ $(document).ready(function () {
       category: "snacks",
       subcategory: "Burger",
     },
-
     {
       name: "Boilled Sausage (Buff/Chicken)",
       price: "40/50",
@@ -91,7 +91,6 @@ $(document).ready(function () {
       category: "snacks",
       subcategory: "Sausage",
     },
-
     {
       name: "Veg Sandwich",
       price: "120",
@@ -110,7 +109,6 @@ $(document).ready(function () {
       category: "snacks",
       subcategory: "Sandwich",
     },
-
     {
       name: "Omelette",
       price: "60",
@@ -135,7 +133,6 @@ $(document).ready(function () {
       category: "snacks",
       subcategory: "Omelette",
     },
-
     {
       name: "Bread Toast ",
       price: "20",
@@ -148,18 +145,19 @@ $(document).ready(function () {
       category: "snacks",
       subcategory: "Toast",
     },
-  ];
-
-  let hotBeverages = [
+  ],
+  hotBeverages = [
     { name: "French Press Coffee", price: 90, subcategory: "Coffee" },
     { name: "Pour Over Coffee", price: 100, subcategory: "Coffee" },
     { name: "Milk Coffee", price: 120, subcategory: "Coffee" },
-
-    { name: "Hot Lemon", price: 50 ,subcategory:"Hot Lemon"},
-    { name: "Hot Lemon w/ Honey", price: 100 ,subcategory:"Hot Lemon"},
-    { name: "Hot Lemon w/ Ginger & Honey", price: 110 ,subcategory:"Hot Lemon"},
-    { name: "Hot Chocolate", price: 150 ,subcategory:"Hot Lemon"},
-
+    { name: "Hot Lemon", price: 50, subcategory: "Hot Lemon" },
+    { name: "Hot Lemon w/ Honey", price: 100, subcategory: "Hot Lemon" },
+    {
+      name: "Hot Lemon w/ Ginger & Honey",
+      price: 110,
+      subcategory: "Hot Lemon",
+    },
+    { name: "Hot Chocolate", price: 150, subcategory: "Hot Lemon" },
     { name: "Black Tea", price: 30, subcategory: "Tea" },
     { name: "Black Masala Tea", price: 35, subcategory: "Tea" },
     { name: "Lemon Tea", price: 40, subcategory: "Tea" },
@@ -168,24 +166,8 @@ $(document).ready(function () {
     { name: "Milk Masala Tea", price: 60, subcategory: "Tea" },
     { name: "Ginger Tea (Milk/Black)", price: "60/40", subcategory: "Tea" },
     { name: "Saffron Milk tea", price: 100, subcategory: "Tea" },
-    
-  ];
-
-  let unique = [
-    ...new Set(
-      hotBeverages
-        .filter(function (sc) {
-          if (sc.subcategory == undefined || sc.subcategory == "") {
-            return false;
-          }
-          return true;
-        })
-        .map((item) => item.subcategory)
-    ),
-  ];
-  console.log(unique);
-
-  let coldBeverages = [
+  ],
+  coldBeverages = [
     { name: "Cold Drinks (Dew/Coke/Slice)", price: 70 },
     { name: "Fresh Lime", price: 80 },
     { name: "Lemonade", price: 120 },
@@ -199,63 +181,74 @@ $(document).ready(function () {
     { name: "Lemon Iced Tea", price: 120 },
   ];
 
-  $("body").css("background-color", "#eee");
-  $(".nav-items").css("color", "#000");
-  menuBuilder(snacks);
-
-  $("#nav-snacks").click(function () {
-    $(".nav-item").removeClass("nav-item-selected");
-    $("#nav-snacks").addClass("nav-item-selected");
-    menuBuilder(snacks);
-  });
-
-  $("#nav-hot").click(function () {
-    $(".nav-item").removeClass("nav-item-selected");
-    $("#nav-hot").addClass("nav-item-selected");
-    menuBuilder(hotBeverages);
-  });
-
-  $("#nav-cold").click(function () {
-    $(".nav-item").removeClass("nav-item-selected");
-    $("#nav-cold").addClass("nav-item-selected");
-    menuBuilder(coldBeverages);
-  });
-
-  function menuBuilder(menuList) {
-    $("#content").empty();
-    let subcategoryList = [
-      ...new Set(
-        menuList
-          .filter(function (item) {
-            if (item.subcategory == undefined || item.subcategory == "") {
-              return false;
-            }
-            return true;
-          })
-          .map((item) => item.subcategory)
-      ),
-    ];
+function menuBuilder(menuList) {
+  document.querySelector("#content").innerHTML = "";
+  let subcategoryList = [
+    ...new Set(
+      menuList
+        .filter(function (item) {
+          return null != item.subcategory && "" != item.subcategory;
+        })
+        .map((item) => item.subcategory)
+    ),
+  ];
+  if (subcategoryList.length) {
     for (let i = 0; i < subcategoryList.length; i++) {
-      $("#content").append(
-        "<h4 class='sub-category-heading'>" + subcategoryList[i] + "</h4>"
-      );
-
+      document
+        .querySelector("#content")
+        .insertAdjacentHTML(
+          "beforeend",
+          "<h4 class='sub-category-heading'>" + subcategoryList[i] + "</h4>"
+        );
       let subcategoryMenuList = menuList.filter(function (item) {
-        if (item.subcategory == subcategoryList[i]) {
-          return true;
-        }
-        return false;
+        return item.subcategory == subcategoryList[i];
       });
-
-      for (let j = 0; j < subcategoryMenuList.length; j++) {
-        $("#content").append(
+      for (let j = 0; j < subcategoryMenuList.length; j++)
+        document
+          .querySelector("#content")
+          .insertAdjacentHTML(
+            "beforeend",
+            "<div class='card'><h5>" +
+              subcategoryMenuList[j].name +
+              "</h5><i>" +
+              subcategoryMenuList[j].price +
+              "</i></div>"
+          );
+    }
+  } else {
+    for (let i = 0; i < menuList.length; i++) {
+      document
+        .querySelector("#content")
+        .insertAdjacentHTML(
+          "beforeend",
           "<div class='card'><h5>" +
-            subcategoryMenuList[j].name +
+            menuList[i].name +
             "</h5><i>" +
-            subcategoryMenuList[j].price +
+            menuList[i].price +
             "</i></div>"
         );
-      }
     }
   }
-});
+}
+menuBuilder(snacks),
+  document.querySelector("#nav-snacks").addEventListener("click", function () {
+    document
+      .querySelector(".nav-item-selected")
+      .classList.remove("nav-item-selected"),
+      document.querySelector("#nav-snacks").classList.add("nav-item-selected"),
+      menuBuilder(snacks);
+  }),
+  document.querySelector("#nav-hot").addEventListener("click", function () {
+    document
+      .querySelector(".nav-item-selected")
+      .classList.remove("nav-item-selected"),
+      document.querySelector("#nav-hot").classList.add("nav-item-selected"),
+      menuBuilder(hotBeverages);
+  }),
+  document.querySelector("#nav-cold").addEventListener("click", function () {
+    document
+      .querySelector(".nav-item-selected")
+      .classList.remove("nav-item-selected"),
+      document.querySelector("#nav-cold").classList.add("nav-item-selected"),
+      menuBuilder(coldBeverages);
+  });

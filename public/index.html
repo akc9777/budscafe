@@ -9,12 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;300;500&display=swap" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script> -->
   <link rel="manifest" href="manifest.json">
   <title>Bud's Cafe</title>
   <script>
-    //if browser support service worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js');
     };
@@ -34,7 +33,7 @@
   <nav>
     <span class="nav-item nav-item-selected" id="nav-snacks">
       <img src="img/burger.png">
-      <span class="nav-label">Snacks</span>
+      <span class="nav-label">Foods</span>
     </span>
     <span class="nav-item" id="nav-hot">
       <img src="img/coffee.png">
@@ -45,7 +44,7 @@
       <span class="nav-label">Cold Drinks</span>
     </span>
   </nav>
-  <script src="script.js" type="text/javascript"></script>
+  <script defer src="scriptjs.min.js" type="text/javascript"></script>
 </body>
 
 </html>

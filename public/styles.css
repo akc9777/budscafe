@@ -59,11 +59,6 @@ nav .nav-item img {
   border-radius: 10px;
 }
 
-/* a span {
-  padding-top: 0.25em;
-  padding-bottom: 0.5em;
-} */
-
 .card {
   border-radius: 10px;
   padding: 0 20px 0 10px;
@@ -79,9 +74,15 @@ nav .nav-item img {
 }
 
 #content {
-  margin-bottom: 80px;
+  margin-bottom: 100px;
 }
 
 #note {
   display: none;
+}
+
+.sub-category-heading {
+  font-size: 1.25em;
+  /* font-weight: 200; */
+  padding: 0 0 0 10px;
 }
