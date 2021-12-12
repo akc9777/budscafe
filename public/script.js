@@ -1,261 +1,313 @@
-$(document).ready(function () {
-  let lightBrown = "#8a5d3b";
-  let darkBrown = "#331a0d";
-
-  let snacks = [
+let lightBrown = "#8a5d3b",
+  darkBrown = "#331a0d",
+  snacks = [
     {
-      name: "Steam Mo:Mo (Veg/Buff/Chicken)",
-      price: "130/140/150",
+      n: "Steam Mo:Mo (🌿/🐃/🐔)",
+      p: "130/140/150",
       category: "snacks",
       subcategory: "Mo:Mo",
     },
     {
-      name: "Jhol Mo:Mo (Veg/Buff/chicken)",
-      price: "150/160/170",
+      n: "Jhol Mo:Mo (🌿/🐃/🐔)",
+      p: "150/160/170",
       category: "snacks",
       subcategory: "Mo:Mo",
     },
     {
-      name: "Fried Mo:Mo (Veg/Buff/Chicken)",
-      price: "160/170/180",
+      n: "Fried Mo:Mo (🌿/🐃/🐔)",
+      p: "160/170/180",
       category: "snacks",
       subcategory: "Mo:Mo",
     },
     {
-      name: "Tandoori Mo:Mo (Veg/Buff/Chicken)",
-      price: "200/210/220",
+      n: "Tandoori Mo:Mo (🌿/🐃/🐔)",
+      p: "200/210/220",
       category: "snacks",
       subcategory: "Mo:Mo",
     },
     {
-      name: "Afghani Mo:Mo (Veg/Buff/Chicken)",
-      price: "200/210/220",
+      n: "Afghani Mo:Mo (🌿/🐃/🐔)",
+      p: "200/210/220",
       category: "snacks",
       subcategory: "Mo:Mo",
     },
-
-    { name: "Veg Pizza", price: 250, category: "snacks", subcategory: "Pizza" },
     {
-      name: "Chicken Pizza",
-      price: 280,
+      n: "Veg Pizza",
+      p: 250,
       category: "snacks",
       subcategory: "Pizza",
     },
     {
-      name: "Cheese Pizza",
-      price: 300,
+      n: "Chicken Pizza",
+      p: 280,
       category: "snacks",
       subcategory: "Pizza",
     },
-
     {
-      name: "French Fries",
-      price: "150",
+      n: "Cheese Pizza",
+      p: 300,
+      category: "snacks",
+      subcategory: "Pizza",
+    },
+    {
+      n: "French Fries",
+      p: "150",
       category: "snacks",
       subcategory: "Fries",
     },
     {
-      name: "Bud's fries",
-      price: "190",
+      n: "Bud's fries",
+      p: "190",
       category: "snacks",
       subcategory: "Fries",
     },
     {
-      name: "Veg Burger",
-      price: "140",
+      n: "Veg Burger",
+      p: "140",
       category: "snacks",
       subcategory: "Burger",
     },
     {
-      name: "Egg Burger",
-      price: "150",
+      n: "Egg Burger",
+      p: "150",
       category: "snacks",
       subcategory: "Burger",
     },
     {
-      name: "Chicken Burger",
-      price: "160",
+      n: "Chicken Burger",
+      p: "160",
       category: "snacks",
       subcategory: "Burger",
     },
-
     {
-      name: "Boilled Sausage (Buff/Chicken)",
-      price: "40/50",
+      n: "Boiled Sausage (🐃/🐔)",
+      p: "40/50",
       category: "snacks",
       subcategory: "Sausage",
     },
     {
-      name: "Sausage Fry (Buff/Chicken)",
-      price: "50/60",
+      n: "Sausage Fry (🐃/🐔)",
+      p: "50/60",
       category: "snacks",
       subcategory: "Sausage",
     },
-
     {
-      name: "Veg Sandwich",
-      price: "120",
+      n: "Veg Sandwich",
+      p: "120",
       category: "snacks",
       subcategory: "Sandwich",
     },
     {
-      name: "Egg Sandwich",
-      price: "140",
+      n: "Egg Sandwich",
+      p: "140",
       category: "snacks",
       subcategory: "Sandwich",
     },
     {
-      name: "Chicken Sandwich",
-      price: "160",
+      n: "Chicken Sandwich",
+      p: "160",
       category: "snacks",
       subcategory: "Sandwich",
     },
-
     {
-      name: "Omelette",
-      price: "60",
+      n: "Omelette",
+      p: "60",
       category: "snacks",
       subcategory: "Omelette",
     },
     {
-      name: "Cheese Omelette",
-      price: "80",
+      n: "Cheese Omelette",
+      p: "80",
       category: "snacks",
       subcategory: "Omelette",
     },
     {
-      name: "Bread Omelette",
-      price: "80",
+      n: "Bread Omelette",
+      p: "80",
       category: "snacks",
       subcategory: "Omelette",
     },
     {
-      name: "Cheese Bread Omelette",
-      price: "100",
+      n: "Cheese Bread Omelette",
+      p: "100",
       category: "snacks",
       subcategory: "Omelette",
     },
-
     {
-      name: "Bread Toast ",
-      price: "20",
+      n: "Bread Toast ",
+      p: "20",
       category: "snacks",
       subcategory: "Toast",
     },
     {
-      name: "Bread Toast with Butter",
-      price: "30",
+      n: "Bread Toast with Butter",
+      p: "30",
       category: "snacks",
       subcategory: "Toast",
     },
+  ],
+  hotBeverages = [
+    { n: "French Press Coffee", p: 90, subcategory: "Coffee" },
+    { n: "Pour Over Coffee", p: 100, subcategory: "Coffee" },
+    { n: "Milk Coffee", p: 120, subcategory: "Coffee" },
+    { n: "Hot Lemon", p: 50, subcategory: "Hot Lemon" },
+    { n: "Hot Lemon w/ Honey", p: 100, subcategory: "Hot Lemon" },
+    {
+      n: "Hot Lemon w/ Ginger & Honey",
+      p: 110,
+      subcategory: "Hot Lemon",
+    },
+    { n: "Hot Chocolate", p: 150, subcategory: "Hot Lemon" },
+    { n: "Black Tea", p: 30, subcategory: "Tea" },
+    { n: "Black Masala Tea", p: 35, subcategory: "Tea" },
+    { n: "Lemon Tea", p: 40, subcategory: "Tea" },
+    { n: "Green Tea", p: 50, subcategory: "Tea" },
+    { n: "Milk Tea", p: 50, subcategory: "Tea" },
+    { n: "Milk Masala Tea", p: 60, subcategory: "Tea" },
+    { n: "Ginger Tea (Milk/Black)", p: "60/40", subcategory: "Tea" },
+    { n: "Saffron Milk tea", p: 100, subcategory: "Tea" },
+  ],
+  coldBeverages = [
+    {
+      n: "Cold Drinks (Dew/Coke/Slice)",
+      p: "70",
+      category: "snacks",
+      subcategory: "Chilled Drinks",
+    },
+    {
+      n: "Fresh Lime",
+      p: "80",
+      category: "snacks",
+      subcategory: "Refreshing Drinks",
+    },
+    {
+      n: "Lemonade",
+      p: "120",
+      category: "snacks",
+      subcategory: "Refreshing Drinks",
+    },
+    {
+      n: "Mint Lemonade",
+      p: "140",
+      category: "snacks",
+      subcategory: "Refreshing Drinks",
+    },
+    {
+      n: "Plain Lassi",
+      p: "120",
+      category: "snacks",
+      subcategory: "Lassi",
+    },
+    {
+      n: "Banana Lassi",
+      p: "140",
+      category: "snacks",
+      subcategory: "Lassi",
+    },
+    {
+      n: "Iced Americano",
+      p: "120",
+      category: "snacks",
+      subcategory: "Chilled Drinks",
+    },
+    {
+      n: "Cold Coffee",
+      p: "160",
+      category: "snacks",
+      subcategory: "Chilled Drinks",
+    },
+    {
+      n: "Cold Chocolate",
+      p: "160",
+      category: "snacks",
+      subcategory: "Chilled Drinks",
+    },
+    {
+      n: "Peach Iced Tea",
+      p: "120",
+      category: "snacks",
+      subcategory: "Chilled Drinks",
+    },
+    {
+      n: "Lemon Iced Tea",
+      p: "120",
+      category: "snacks",
+      subcategory: "Chilled Drinks",
+    },
+  ],
+  snacksCategory = [
+    { c: "Mo:Mo", d: " " },
+    { c: "Pizza", d: "*extra cheese @ 70" },
+    { c: "Fries", d: " " },
+    { c: "Burger", d: "*extra cheese @ 40" },
+    { c: "Sausage", d: " " },
+    { c: "Sandwich", d: " " },
+    { c: "Omelette", d: " " },
+    { c: "Toast", d: " " },
+  ],
+  hotBeveragesCategory = [
+    { c: "Coffee", d: " " },
+    { c: "Hot Lemon", d: " " },
+    { c: "Tea", d: "*extra honey @ 60" },
+  ],
+  coldBeveragesCategory = [
+    { c: "Chilled Drinks", d: " " },
+    { c: "Refreshing Drinks", d: " " },
+    { c: "Lassi", d: " " },
   ];
 
-  let hotBeverages = [
-    { name: "French Press Coffee", price: 90, subcategory: "Coffee" },
-    { name: "Pour Over Coffee", price: 100, subcategory: "Coffee" },
-    { name: "Milk Coffee", price: 120, subcategory: "Coffee" },
+function menuBuilder(menuList, categoryList = []) {
+  document.documentElement.scrollTop = 0;
+  document.querySelector("#content").innerHTML = "";
 
-    { name: "Hot Lemon", price: 50 ,subcategory:"Hot Lemon"},
-    { name: "Hot Lemon w/ Honey", price: 100 ,subcategory:"Hot Lemon"},
-    { name: "Hot Lemon w/ Ginger & Honey", price: 110 ,subcategory:"Hot Lemon"},
-    { name: "Hot Chocolate", price: 150 ,subcategory:"Hot Lemon"},
-
-    { name: "Black Tea", price: 30, subcategory: "Tea" },
-    { name: "Black Masala Tea", price: 35, subcategory: "Tea" },
-    { name: "Lemon Tea", price: 40, subcategory: "Tea" },
-    { name: "Green Tea", price: 50, subcategory: "Tea" },
-    { name: "Milk Tea", price: 50, subcategory: "Tea" },
-    { name: "Milk Masala Tea", price: 60, subcategory: "Tea" },
-    { name: "Ginger Tea (Milk/Black)", price: "60/40", subcategory: "Tea" },
-    { name: "Saffron Milk tea", price: 100, subcategory: "Tea" },
-    
-  ];
-
-  let unique = [
-    ...new Set(
-      hotBeverages
-        .filter(function (sc) {
-          if (sc.subcategory == undefined || sc.subcategory == "") {
-            return false;
-          }
-          return true;
-        })
-        .map((item) => item.subcategory)
-    ),
-  ];
-  console.log(unique);
-
-  let coldBeverages = [
-    { name: "Cold Drinks (Dew/Coke/Slice)", price: 70 },
-    { name: "Fresh Lime", price: 80 },
-    { name: "Lemonade", price: 120 },
-    { name: "Mint Lemonade", price: 140 },
-    { name: "Plain Lassi", price: 120 },
-    { name: "Banana Lassi", price: 140 },
-    { name: "Iced Americano", price: 120 },
-    { name: "Cold Coffee", price: 160 },
-    { name: "Cold Chocolate", price: 160 },
-    { name: "Peach Iced Tea", price: 120 },
-    { name: "Lemon Iced Tea", price: 120 },
-  ];
-
-  $("body").css("background-color", "#eee");
-  $(".nav-items").css("color", "#000");
-  menuBuilder(snacks);
-
-  $("#nav-snacks").click(function () {
-    $(".nav-item").removeClass("nav-item-selected");
-    $("#nav-snacks").addClass("nav-item-selected");
-    menuBuilder(snacks);
-  });
-
-  $("#nav-hot").click(function () {
-    $(".nav-item").removeClass("nav-item-selected");
-    $("#nav-hot").addClass("nav-item-selected");
-    menuBuilder(hotBeverages);
-  });
-
-  $("#nav-cold").click(function () {
-    $(".nav-item").removeClass("nav-item-selected");
-    $("#nav-cold").addClass("nav-item-selected");
-    menuBuilder(coldBeverages);
-  });
-
-  function menuBuilder(menuList) {
-    $("#content").empty();
-    let subcategoryList = [
-      ...new Set(
-        menuList
-          .filter(function (item) {
-            if (item.subcategory == undefined || item.subcategory == "") {
-              return false;
-            }
-            return true;
-          })
-          .map((item) => item.subcategory)
-      ),
-    ];
-    for (let i = 0; i < subcategoryList.length; i++) {
-      $("#content").append(
-        "<h4 class='sub-category-heading'>" + subcategoryList[i] + "</h4>"
+  for (let i = 0; i < categoryList.length; i++) {
+    document
+      .querySelector("#content")
+      .insertAdjacentHTML(
+        "beforeend",
+        "<h4 class='sub-category-heading'>" +
+          categoryList[i].c +
+          "</h4><i>" +
+          categoryList[i].d +
+          "</i>"
       );
 
-      let subcategoryMenuList = menuList.filter(function (item) {
-        if (item.subcategory == subcategoryList[i]) {
-          return true;
-        }
-        return false;
-      });
-
-      for (let j = 0; j < subcategoryMenuList.length; j++) {
-        $("#content").append(
+    let subcategoryMenuList = menuList.filter(function (item) {
+      return item.subcategory == categoryList[i].c;
+    });
+    for (let j = 0; j < subcategoryMenuList.length; j++)
+      document
+        .querySelector("#content")
+        .insertAdjacentHTML(
+          "beforeend",
           "<div class='card'><h5>" +
-            subcategoryMenuList[j].name +
+            subcategoryMenuList[j].n +
             "</h5><i>" +
-            subcategoryMenuList[j].price +
+            subcategoryMenuList[j].p +
             "</i></div>"
         );
-      }
-    }
   }
-});
+}
+
+menuBuilder(snacks, snacksCategory),
+  document.querySelector("#nav-snacks").addEventListener("click", function () {
+    document
+      .querySelector(".nav-item-selected")
+      .classList.remove("nav-item-selected"),
+      document.querySelector("#nav-snacks").classList.add("nav-item-selected"),
+      menuBuilder(snacks, snacksCategory);
+  }),
+  document.querySelector("#nav-hot").addEventListener("click", function () {
+    document
+      .querySelector(".nav-item-selected")
+      .classList.remove("nav-item-selected"),
+      document.querySelector("#nav-hot").classList.add("nav-item-selected"),
+      menuBuilder(hotBeverages, hotBeveragesCategory);
+  }),
+  document.querySelector("#nav-cold").addEventListener("click", function () {
+    document
+      .querySelector(".nav-item-selected")
+      .classList.remove("nav-item-selected"),
+      document.querySelector("#nav-cold").classList.add("nav-item-selected"),
+      menuBuilder(coldBeverages, coldBeveragesCategory);
+  });
