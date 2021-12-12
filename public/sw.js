@@ -3,7 +3,15 @@ self.addEventListener('install', function(event) {
     event.waitUntil(
       caches.open('sw-cache').then(function(cache) {
         // cache any static files that make up the application shell
-        return cache.add('index.html');
+        return cache.addAll([
+          'index.html',
+          'styles.min.css',
+          'script.min.js',
+          'img/burger.png',
+          'img/coffee.png',
+          'img/juice.png',
+          'img/logo.png'
+        ]);
       })
     );
   });
